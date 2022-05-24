@@ -1,4 +1,5 @@
 terraform {
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -15,7 +16,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "s3_bucket" {
-  bucket = "serverlesshub-bucket"
+  bucket = var.s3_bucket_name
 
   tags = {
     provisioning_method = "terraform"
@@ -23,7 +24,7 @@ resource "aws_s3_bucket" "s3_bucket" {
 }
 
 resource "aws_dynamodb_table" "ddb_table" {
-  name           = "serverlesshub-ddb"
+  name           = var.ddb_table_name
   billing_mode   = "PAY_PER_REQUEST"
   hash_key       = "id"
   range_key      = "datetime"
