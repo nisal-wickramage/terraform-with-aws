@@ -1,12 +1,5 @@
 terraform {
 
-    backend "s3" {
-        bucket = "serverless-hub-tfstate"
-        key = "serverless-hub.tfstate"
-        region = "us-east-1"
-        dynamodb_table = "serverless-hub-statelock"
-    }
-
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -33,16 +26,10 @@ resource "aws_s3_bucket" "s3_bucket" {
 resource "aws_dynamodb_table" "ddb_table" {
   name           = var.ddb_table_name
   billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "id"
-  range_key      = "datetime"
+  hash_key       = "LockID"
 
   attribute {
-    name = "id"
-    type = "N"
-  }
-
-  attribute {
-    name = "datetime"
+    name = "LockID"
     type = "S"
   }
 
