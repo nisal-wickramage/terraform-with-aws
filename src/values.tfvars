@@ -1,2 +1,5 @@
-s3_bucket_name = "serverlesshub-bucket"
-ddb_table_name = "serverlesshub-ddb"
+region = "us-east-1"
+environment = "dev"
+project_name = "sh"
+s3_bucket_name = "demo"
+ddb_table_name = "demo"
