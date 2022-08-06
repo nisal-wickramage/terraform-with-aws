@@ -18,7 +18,7 @@ address duplication issues with terragrunt
 
 ## create tf state bucket and ddb table
 
-run initialize.sh shell script
+run `sh initialize.sh -b 'sh-dev-tfstate' -t 'sh-dev-tfstatelock' -r 'us-east-1'`
 
 
 
