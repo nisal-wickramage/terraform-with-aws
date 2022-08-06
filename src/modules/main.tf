@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "s3_bucket" {
-  bucket = "${var.environment}-${var.project_name}-${var.s3_bucket_name}"
+  bucket = "${var.project_name}-${var.environment}-${var.s3_bucket_name}"
 
   tags = {
     provisioning_method = "terraform",
@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "s3_bucket" {
 }
 
 resource "aws_dynamodb_table" "ddb_table" {
-  name           = "${var.environment}-${var.project_name}-${var.ddb_table_name}"
+  name           = "${var.project_name}-${var.environment}-${var.ddb_table_name}"
   billing_mode   = "PAY_PER_REQUEST"
   hash_key       = "id"
   range_key      = "datetime"
